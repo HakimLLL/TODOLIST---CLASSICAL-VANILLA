@@ -10,7 +10,7 @@ const todos = JSON.parse(localStorage.todos) || [];
 const appElement = document.querySelector(".todoapp");
 const addInputElement = appElement.querySelector(".new-todo");
 const todosContainer = appElement.querySelector(".todo-list");
-const notCompletedCountElement = appElement.querySelector("todo-count");
+const notCompletedCountElement = appElement.querySelector(".todo-count span");
 
 // AFFICHAGE DES TODOS INITIALES
 todos.forEach((item) => {
@@ -27,3 +27,6 @@ todos.forEach((item) => {
           </li>
     `;
 });
+
+// affichage du nombre de tâches non complétées
+notCompletedCountElement.innerText= todos.filter(todo=> !todo.completed).length;
